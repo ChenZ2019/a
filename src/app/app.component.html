@@ -1,0 +1,82 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="center">
+  <h3>
+    SOLICITUD DE ESTUDIO GENOMICO DE TUMORES ESPORÁTICOS Y ONCOHEMATOLOGÍA
+  </h3>
+  <br>
+    <div class="p1">
+      <div class="left">
+      <h4>Información del paciente</h4>
+      <div>Nombre*
+      <input type="text" ng-model="yourName" placeholder="Introduzca su nombre">
+
+      &nbsp; <label>Apellidos*</label> <input type="text" ng-model="yourSurname" placeholder="Introduzca su apellido">
+  </div>
+  <br>
+    <div>Tipo documento*
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;         
+    &nbsp;
+    &nbsp;   
+    <label>Núm. documento*</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label>Género*</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+        <label>Fecha de Nacimiento*</label>                
+        <br>    &nbsp;    &nbsp;
+        <select name="menu">
+            <option>ID de petición</option>              
+            <option>N/A (Feto)</option>
+            <option>Núm. historia clínica</option>
+            <option>DNI</option>
+            <option>NIE</option>
+            <option>Pasaporte</option>
+            </select> 
+            &nbsp;
+            &nbsp;
+
+            <input type="text" ng-model="yourDoc" placeholder="Introduzca su Núm. de documentación">
+            &nbsp;
+            &nbsp;         
+            &nbsp; 
+            <select name="menu">
+                <option>Hombre</option>              
+                <option>Mujer</option>
+                <option>Desconocido</option>
+                </select> &nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="date" type="date">
+                <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>Grupo étnico*</label> 
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <select name="menu">
+                    <option>1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>              
+                    <option>2</option>
+                    <option>3</option>
+                    </select>
+
+
+                  </div>                                       
+</div>
+<br>
+<br><br><br><br>
+<div style="text-align:center">
+    <label>
+        Estudios solicitados
+    </label><br>
+      <select name="menu">
+        <optgroup label="Tumores sólidos">
+          <option>Mamma GeneProfile</option>              
+          <option>Panel Cáncer 170</option>
+          <option>Exoma tumoral 51 Mb (Investigación)</option>              
+          <option>Exoma tumoral 71 Mb (Investigación)</option>
+        </optgroup>
+        <optgroup label="Oncohematología">
+            <option>Panel LEUCEMIA MIELOIDE AGUDA</option>              
+            <option>Panel MYELOID NEOPLASM</option>
+          </optgroup>
+          </select> 
+      
+
+
+<router-outlet></router-outlet>

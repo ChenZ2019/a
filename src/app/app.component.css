@@ -1,0 +1,24 @@
+div.p1 {
+    margin: auto;
+    background-color: rgb(174, 193, 223);
+    height: 320px;
+    width: 900px;
+    border-radius: 0px 0px 0px 0px;
+    border: 2px solid #000000;
+  }
+
+div.center {
+    text-align:center;
+}
+div.left {
+    text-align:left;
+}
+h4 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+    padding-left: 10px;
+  }
+div {
+    padding-left: 10px;
+}
