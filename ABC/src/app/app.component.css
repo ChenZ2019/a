@@ -19,6 +19,44 @@ h4 {
     font-size: 100%;
     padding-left: 10px;
   }
-div {
-    padding-left: 10px;
+label.margin0 {
+    margin-left: 20px;
+    font-size: 90%;
+}
+label.margin1 {
+    margin-left: 20px;
+    font-size: 90%;
+}
+label.margin3 {
+    margin-left: 80px;
+    font-size: 90%;
+}
+label.margin4 {
+    margin-left: 130px;
+    font-size: 90%;
+}
+label.margin5 {
+    margin-left: 90px;
+    font-size: 90%;
+}
+select.menu {
+    margin-left: 20px;
+}
+input.text {
+    margin-left: 30px;
+}
+select.menu2 {
+    margin-left: 20px;
+}
+input.date {
+    margin-left: 40px;
+}
+label.margin6 {
+    margin-left:660px;
+}
+select.menu3 {
+    margin-left: 660px;
+}
+option.opcion {
+    margin-left: 80px;
 }
