@@ -1,4 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<!DOCTYPE html>
+<html ng-app="app">
+    <script src="app.js"></script>
+<body ng-controller="testController">
+    <div class="container" style="padding:10px 10px;">
 <div class="center">
   <h3>
     SOLICITUD DE ESTUDIO GENOMICO DE TUMORES ESPORÁTICOS Y ONCOHEMATOLOGÍA
@@ -8,8 +12,9 @@
       <div class="left">
       <h4>Información del paciente</h4>
       <label class="margin0">Nombre*
-      <input type="text" ng-model="yourName" placeholder="Introduzca su nombre">
-      <label class="margin1">Apellidos*</label> <input type="text" ng-model="yourSurname" placeholder="Introduzca su apellido">
+      <input type="text" size="15" ng-model="yourName" placeholder="Introduzca su nombre">
+      <label class="margin1">Apellidos*</label>
+      <input type="text2" size="45" ng-model="yourSurname" placeholder="Introduzca su apellido">
       </label>
   <br>
   <br>
@@ -39,7 +44,7 @@
                 <label class="margin6">Grupo étnico*</label> 
                 <br>
                 <select class="menu3">
-                    <option class="opcion">1 </option>              
+                    <option>1 </option>              
                     <option>2</option>
                     <option>3</option>
                     </select>
@@ -48,11 +53,10 @@
                   </div>                                       
 </div>
 <br>
-<br><br><br><br>
-<div style="text-align:center">
-    <label>
-        Estudios solicitados
-    </label><br>
+<br>
+<div class="menu123">
+    <label class="Estudios">Estudios solicitados</label>
+    <br>
       <select name="menu">
         <optgroup label="Tumores sólidos">
           <option>Mamma GeneProfile</option>              
@@ -65,7 +69,95 @@
             <option>Panel MYELOID NEOPLASM</option>
           </optgroup>
           </select> 
-      
+          <br>
+          </div>
 
+          <div class="center2">
+          <label class="Sell">Selección de individuos y muestras</label>
+          <br>
+          <br>
+          <script>
+            function deleteRow(id,row) {
+                document.getElementById(id).deleteRow(row);
+            }
+            
+            function insRow(id) {
+                var filas = document.getElementById("tabla").rows.length;
+                var x = document.getElementById(id).insertRow(filas);
+                var y = x.insertCell(0);
+                var z = x.insertCell(1);
+                y.innerHTML = '<input type="text" id="fname">';
+                z.innerHTML ='<button id="btn" name="btn" > Delete</button>';
+            }
+            </script>
+          <table class="tabla">
+              <td class="a" width="200">Referencia muestra*</td>
+              <td class="a" width="150">Tipo*</td>
+              <td class="a" width="150">Localización*</td>
+              <td class="a" width="700">Notas*</td>
+              <td class="a"></td>
 
+              <tr>
+                <td>{{emp.employee_ref}}</td>
+                <td>{{emp.employee_tipo}}</td>
+                <td>{{emp.employee_loc}}</td>
+                <td>{{emp.employee_notas}}</td>
+                <td><input type="button" value="-" onclick="deleteRow('tabla',0)"></td>
+              </tr>
+              <tr>
+                <td>{{emp.employee_ref}}</td>
+                <td>{{emp.employee_tipo}}</td>
+                <td>{{emp.employee_loc}}</td>
+              <td>{{emp.employee_notas}}</td>
+              <td><input type="button" value="-" onclick="deleteRow('tabla',1)"></td>
+            </tr>
+            <tr>
+              <td>{{emp.employee_ref}}</td>
+                <td>{{emp.employee_tipo}}</td>
+                <td>{{emp.employee_loc}}</td>
+              <td>{{emp.employee_notas}}</td>
+              <td><input type="button" value="-" onclick="deleteRow('tabla',2)"></td>
+            </tr>
+            <p><input type="button" onclick="insRow('tabla')" value="+"></p>
+          </table> 
+        </div>
+      </div>
+      <div class="left2">
+        <label class="infocli">Información clínica relevante y objetiva del estudio:</label>
+        <label class="infocli2">Adjuntar archivos con información clínica:</label>
+        <input type="file" class="botonselec" name="Seleccionar" multiple>
+        <label class="infocli3">Información sobre el tratamiento:</label>
+        <br>
+        <input type="text2" class="grande" ng-model="relevInfo">
+        <input type="text2" class="grande2" ng-model="relevInfo">
+        <br>
+        <br>
+        <label class="infocli4">Edad al diagnóstico: </label>
+        <input type="text4" class="grande3" ng-model="relevInfo">
+        <label class="infocli5">Si ha habido cirugía, indique el tipo: </label>
+        <input type="text5" class="grande4" ng-model="relevInfo">
+        <label class="infocli6">Fecha del primer diagnóstico histológico: </label>
+        <input type="date" class="grande5" ng-model="relevInfo">
+        <div class="separacion">
+        <label class="declare1">Declaración de necesidad médica y consentimiento</label>
+        <br>
+        
+        <input type="checkbox" unchecked />
+        <label class="declare2">Confirmo que he informado al paciente sobre las pruebas genéticas solicitadas, los resultados posible, y su significado.</label>
+        <br>
+        <input type="checkbox" unchecked />
+        <label class="declare2">Confirmo que el paciente ha dado su consentimiento para las pruebas genéticas a realizar, y que su consentimiento firmado se ha archivado en su expediente.</label>
+        <br>
+        <input type="checkbox" unchecked />
+        <label class="declare2">Confirmo que esta prueba es médicamente necesaria para el diagnóstico o la detección de una enfermedad y que estos resultados pueden ser utilizados en las decisiones de tratamiento para este paciente.</label>
+        <br>
+        <input type="checkbox" unchecked />
+        <label class="declare2">El paciente da su consentimiento al uso de su muestra por Sistemas Genómicos, SL con fines de investigación.</label>
+      </div>
+    </div>
+    <div class="botoncitos">
+      <input type="button" value="Cancelar" onclick="">
+      <input type="button" class="solicitar" value="Solicitar" onclick="">
+    </div>
+    
 <router-outlet></router-outlet>
