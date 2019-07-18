@@ -1,7 +1,7 @@
 div.p1 {
     margin: auto;
     background-color: rgb(174, 193, 223);
-    height: 335px;
+    height: 270px;
     border-radius: 0px 0px 0px 0px;
     border: 2px solid #000000;
     width: 900px;
@@ -28,6 +28,11 @@ div.left2 {
     margin: auto;
     margin-top:70px;
 }
+div.left3 {
+    text-align:left;
+    width:1700px;
+    margin: auto;
+}
 h4 {
     color: #369;
     font-size: 100%;
@@ -41,14 +46,15 @@ label.margin0 {
 }
 label.margin1 {
     margin-left: 20px;
+    margin-right:10px;
     font-size: 90%;
 }
 label.margin3 {
-    margin-left: 80px;
+    margin-left: 72px;
     font-size: 90%;
 }
 label.margin4 {
-    margin-left: 130px;
+    margin-left: 95px;
     font-size: 90%;
 }
 label.margin5 {
@@ -82,10 +88,17 @@ label.Estudios {
     margin-right: 130px;
     font-weight: bold;
     font-size: 80%;
+    width:1700px;
 }
 table.tabla {
     box-align: center;
     text-align:left;
+    font-size: 90%;
+    border-collapse: collapse;
+  }
+  table.tabla2 {
+    box-align: right;
+    text-align:center;
     font-size: 90%;
     border-collapse: collapse;
   }
@@ -97,7 +110,7 @@ table.tabla {
 
 }
 label.Sell {
-    margin-right: 930px;
+    margin-right: 1010px;
     text-align: center;
     font-weight: bold;
     font-size: 80%;
@@ -105,16 +118,16 @@ label.Sell {
 
 div.menu123 {
     text-align:center;
-    margin-bottom: 250px;
+    margin-bottom: 130px;
 }
-table {
+table.tabla {
     counter-reset: rowNumber;
 
   }
-  table tr {
+  table.tabla tr {
     counter-increment: rowNumber;
   }
-  table tr td:first-child::before {
+  table.tabla tr td:first-child::before {
     content: counter(rowNumber);
     min-width: 1em;
     margin-right: 0.5em;
@@ -138,11 +151,11 @@ table {
   }
   label.infocli2 {
     font-size: 80%;
-    margin-left: 80px;font-size: 80%;
+    margin-left: 160px;font-size: 80%;
 }
 label.infocli3 {
     font-size: 80%;
-    margin-left: 30px;
+    margin-left: 90px;
 }
 label.infocli4 {
     font-size: 80%;
@@ -181,4 +194,19 @@ div.botoncitos {
 input.solicitar {
     margin-left: 20px;
 
+}
+
+input.employee {
+    width: 550px;
+}
+
+div.buttonAdd {
+   text-align: right; 
+}
+
+input.boxinf {
+    margin-left: 40px;
+}
+label.declareOnco {
+    font-size: 80%;
 }
