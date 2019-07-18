@@ -1,13 +1,12 @@
-<head>
 
-    </head>
-    <body>
 <div class="center">
   <h3>
     SOLICITUD DE ESTUDIO GENOMICO DE TUMORES ESPORÁTICOS Y ONCOHEMATOLOGÍA
   </h3>
   <br>
+
     <div class="p1">
+      
       <div class="left">
       <h4>Información del paciente</h4>
       <label class="margin0">Nombre*
@@ -49,7 +48,7 @@
                     </select>
 
 
-                  </div>                                       
+      </div>                                       
 </div>
 <br>
 <br>
@@ -68,7 +67,7 @@
               <hr style="border-top: dotted 1px;" >
             </div>
             <br>
-          <div name = "boxes">
+          <div>
             <input type="checkbox" unchecked />
           <label class="declareOnco">Seleccionar todos</label>
           <input class="boxinf" type="checkbox" unchecked />
@@ -76,7 +75,7 @@
           <br>
           <br>
           <div *ngFor="let checker of checkers">
-              <table class="tabla2">
+              <table class="tabla2" align="center" width="1000px">
                 <tr>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
@@ -88,7 +87,7 @@
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  
+
                 </tr>
               </table>
               </div>
@@ -169,7 +168,6 @@
       <input type="button" value="Cancelar" onclick="">
       <input type="button" class="solicitar" value="Solicitar" onclick="">
     </div>
-  </body>
     
 <router-outlet></router-outlet>
 
