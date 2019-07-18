@@ -67,17 +67,22 @@
               <hr style="border-top: dotted 1px;" >
             </div>
             <br>
-          <div>
+
+
+            <div>
+
+
+
             <input type="checkbox" unchecked />
           <label class="declareOnco">Seleccionar todos</label>
           <input class="boxinf" type="checkbox" unchecked />
           <label class="declareOnco">Informe OncoBytes</label>
-          <br>
-          <br>
+        </div>
+<br>
           <div *ngFor="let checker of checkers">
-              <table class="tabla2" align="center" width="1000px">
+              <table class="tabla2" align="center" width="900px">
                 <tr>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
+                  <td><input type="checkbox" text-align="center" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
@@ -89,11 +94,12 @@
                   <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
 
                 </tr>
+
               </table>
-              </div>
+            </div>
+
+            </div>
           <br>
-        </div>
-      </div>
       </div>
 
           <div class="center2">

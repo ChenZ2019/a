@@ -99,7 +99,7 @@ table.tabla {
   }
   table.tabla2 {
     box-align: right;
-    text-align:center;
+    text-align:left;
     font-size: 90%;
     border-collapse: collapse;
   }
