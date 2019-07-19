@@ -1,4 +1,4 @@
-export class Checker {
+export class Gene {
     gene: String;
-    checkbox: boolean;
+    selected: boolean;
 }

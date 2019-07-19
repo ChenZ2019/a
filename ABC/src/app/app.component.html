@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
 <div class="center">
   <h3>
@@ -5,177 +8,172 @@
   </h3>
   <br>
 
-    <div class="p1">
-      
-      <div class="left">
+  <div class="p1">
+
+    <div class="left">
       <h4>Información del paciente</h4>
-      <label class="margin0">Nombre*
-      <input type="text" size="25" ng-model="yourName" placeholder="Introduzca su nombre">
-      <label class="margin1">Apellidos*</label>
-      <input type="text2" size="55" ng-model="yourSurname" placeholder="Introduzca su apellido">
-      </label>
-  <br>
-  <br>
-    <label class="margin0">Tipo documento*</label>  
-    <label class="margin3">Núm. documento*</label>
-    <label class="margin4">Género*</label>
-    <label class="margin5">Fecha de Nacimiento*</label>                
-  <br>
-        <select class="menu">
-            <option>ID de petición</option>              
-            <option>N/A (Feto)</option>
-            <option>Núm. historia clínica</option>
-            <option>DNI</option>
-            <option>NIE</option>
-            <option>Pasaporte</option>
-            </select> 
-            <input class="text" ng-model="yourDoc" placeholder="Introduzca su Núm. de documentación">
-            <select class="menu2">
-                <option>Hombre</option>              
-                <option>Mujer</option>
-                <option>Desconocido</option>
-                </select>
-                <input class="date" type="date">
-                <br>
-                <br>
-                <br>
-                <label class="margin6">Grupo étnico*</label> 
-                <br>
-                <select class="menu3">
-                    <option>1 </option>              
-                    <option>2</option>
-                    <option>3</option>
-                    </select>
+      <label class="margin0">Nombre*</label>
+        <input type="text" size="25" ng-model="yourName" placeholder="Introduzca su nombre">
+        <label class="margin1">Apellidos*</label>
+        <input type="text2" size="55" ng-model="yourSurname" placeholder="Introduzca su apellido">
+
+      <br>
+      <br>
+      <label class="margin0">Tipo documento*</label>
+      <label class="margin3">Núm. documento*</label>
+      <label class="margin4">Género*</label>
+      <label class="margin5">Fecha de Nacimiento*</label>
+      <br>
+      <select class="menu">
+        <option>ID de petición</option>
+        <option>N/A (Feto)</option>
+        <option>Núm. historia clínica</option>
+        <option>DNI</option>
+        <option>NIE</option>
+        <option>Pasaporte</option>
+      </select>
+      <input class="text" ng-model="yourDoc" placeholder="Introduzca su Núm. de documentación">
+      <select class="menu2">
+        <option>Hombre</option>
+        <option>Mujer</option>
+        <option>Desconocido</option>
+      </select>
+      <input class="date" type="date">
+      <br>
+      <br>
+      <br>
+      <label class="margin6">Grupo étnico*</label>
+      <br>
+      <select class="menu3">
+        <option>1 </option>
+        <option>2</option>
+        <option>3</option>
+      </select>
 
 
-      </div>                                       
-</div>
-<br>
-<br>
-<div class="menu123">
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="menu123">
     <label class="Estudios">Estudios solicitados</label>
     <br>
-      <select name="menu" [(ngModel)] = "panel">
-        <optgroup *ngFor = "let group of options" label="{{group.group}}">
-          <option value = "{{option}}" *ngFor = "let option of group.options" label = "{{option}}"></option>
-        </optgroup>
+    <select name="menu" [(ngModel)]="panel">
+      <optgroup *ngFor="let group of options" label="{{group.group}}">
+        <option value="{{option}}" *ngFor="let option of group.options" label="{{option}}"></option>
+      </optgroup>
 
-          </select> 
-
-          <div *ngIf = "showChecks()">
-            <div class="left3">
-              <hr style="border-top: dotted 1px;" >
-            </div>
-            <br>
+    </select>
+    <!-- *ngIf="showChecks()"-->
+    <div *ngIf="showChecks()" style="width: 90%; margin:auto"><hr style="border-top: dotted 1px;"></div>
+    <div *ngIf="showChecks()" style="margin:auto; width:50%;">
+      <br>
 
 
-            <div>
-
-
-
-            <input type="checkbox" unchecked />
-          <label class="declareOnco">Seleccionar todos</label>
-          <input class="boxinf" type="checkbox" unchecked />
-          <label class="declareOnco">Informe OncoBytes</label>
-        </div>
-<br>
-          <div *ngFor="let checker of checkers">
-              <table class="tabla2" align="center" width="900px">
-                <tr>
-                  <td><input type="checkbox" text-align="center" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-                  <td><input type="checkbox" value = "checker.checkbox"><label class="declareOnco">{{checker.gene}}</label></td>
-
-                </tr>
-
-              </table>
-            </div>
-
-            </div>
-          <br>
+      <div style="width: 300px; text-align: left">
+        <input style=" margin-left: 28px" type="checkbox"  unchecked [(ngModel)]="selectedvalue" (change)="selectDeselectAll()"/>
+        <label class="declareOnco">Seleccionar todos</label>
+        <input class="boxinf" type="checkbox" unchecked />
+        <label class="declareOnco">Informe OncoBytes</label>
       </div>
+      <br>
+      <div style="height: 350px">
+      <div class="col-md-1" *ngFor="let checker of genes" style = "width: 95px; text-align: left">
 
-          <div class="center2">
-          <label class="Sell">Selección de individuos y muestras</label>
-          <br>
-          <br>
-          <table class="tabla">
-              <td class="a" width="200">Referencia muestra*</td>
-              <td class="a" width="150">Tipo*</td>
-              <td class="a" width="150">Localización*</td>
-              <td class="a" width="900">Notas*</td>
-              <td class="a"></td>
-              <td class="a"></td>
 
-              <tr *ngFor="let row of table">
-                  <td><input type = "text" value = "{{row.employeeRef}}"></td>
-                  <td><input type = "text" value = "{{row.employeeTipo}}"></td>
-                  <td><input type = "text" value = "{{row.employeeLoc}}"></td>
-                  <td><input type = "text" class = "employee" value ="{{row.employeeNotas}}"></td>
-                  <td><input type="button" value="-" (click)= "deleteRow(row)"></td>
-                  
-                </tr>
-              <tr>
-                  <td><input type = "text" value = "{{row.employeeRef}}"></td>
-                  <td><input type = "text" value = "{{row.employeeTipo}}"></td>
-                  <td><input type = "text" value = "{{row.employeeLoc}}"></td>
-                  <td><input type = "text" class = "employee" value ="{{row.employeeNotas}}"></td>
-                  <td><input type="button" value="-" (click)= "deleteRow(row)"></td>
-                  <td><div class="buttonAdd"><input type="button" (click) = "addElement()" value="+"></div></td>
-                  
-                </tr>
-              
-            
-          </table> 
+        <input style="margin-left: 13px" type="checkbox" text-align="left" [(ngModel)]="checker.selected">
+        <label  style="width:1px" class="declareOnco">{{checker.gene}}</label>
 
-      </div>
-      </div>
-      <div class="left2">
-        <label class="infocli">Información clínica relevante y objetiva del estudio:</label>
-        <label class="infocli2">Adjuntar archivos con información clínica:</label>
-        <input type="file" class="botonselec" name="Seleccionar" multiple>
-        <label class="infocli3">Información sobre el tratamiento:</label>
-        <br>
-        <input type="text2" class="grande" ng-model="relevInfo">
-        <input type="text2" class="grande2" ng-model="relevInfo">
-        <br>
-        <br>
-        <label class="infocli4">Edad al diagnóstico: </label>
-        <input type="text4" class="grande3" ng-model="relevInfo">
-        <label class="infocli5">Si ha habido cirugía, indique el tipo: </label>
-        <input type="text5" class="grande4" ng-model="relevInfo">
-        <label class="infocli6">Fecha del primer diagnóstico histológico: </label>
-        <input type="date" class="grande5" ng-model="relevInfo">
-        <div class="separacion">
-        <label class="declare1">Declaración de necesidad médica y consentimiento</label>
-        <br>
-        
-        <input type="checkbox" unchecked />
-        <label class="declare2">Confirmo que he informado al paciente sobre las pruebas genéticas solicitadas, los resultados posible, y su significado.</label>
-        <br>
-        <input type="checkbox" unchecked />
-        <label class="declare2">Confirmo que el paciente ha dado su consentimiento para las pruebas genéticas a realizar, y que su consentimiento firmado se ha archivado en su expediente.</label>
-        <br>
-        <input type="checkbox" unchecked />
-        <label class="declare2">Confirmo que esta prueba es médicamente necesaria para el diagnóstico o la detección de una enfermedad y que estos resultados pueden ser utilizados en las decisiones de tratamiento para este paciente.</label>
-        <br>
-        <input type="checkbox" unchecked />
-        <label class="declare2">El paciente da su consentimiento al uso de su muestra por Sistemas Genómicos, SL con fines de investigación.</label>
       </div>
     </div>
-    <div class="botoncitos">
-      <input type="button" value="Cancelar" onclick="">
-      <input type="button" class="solicitar" value="Solicitar" onclick="">
+
+
+
     </div>
-    
+    <br>
+  </div>
+
+  <div class="center2">
+    <label class="Sell">Selección de individuos y muestras</label>
+    <br>
+    <br>
+    <table class="tabla">
+      <td class="a" width="200">Referencia muestra*</td>
+      <td class="a" width="150">Tipo*</td>
+      <td class="a" width="150">Localización*</td>
+      <td class="a" width="900">Notas*</td>
+      <td class="a"></td>
+      <td class="a"></td>
+
+      <tr *ngFor="let row of table">
+        <td><input type="text" value="{{row.employeeRef}}"></td>
+        <td><input type="text" value="{{row.employeeTipo}}"></td>
+        <td><input type="text" value="{{row.employeeLoc}}"></td>
+        <td><input type="text" class="employee" value="{{row.employeeNotas}}"></td>
+        <td><input type="button" value="-" (click)="deleteRow(row)"></td>
+
+      </tr>
+      <tr>
+        <td><input type="text" value="{{row.employeeRef}}"></td>
+        <td><input type="text" value="{{row.employeeTipo}}"></td>
+        <td><input type="text" value="{{row.employeeLoc}}"></td>
+        <td><input type="text" class="employee" value="{{row.employeeNotas}}"></td>
+        <td><input type="button" value="-" (click)="deleteRow(row)"></td>
+        <td>
+          <div class="buttonAdd"><input type="button" (click)="addElement()" value="+"></div>
+        </td>
+
+      </tr>
+
+
+    </table>
+
+  </div>
+</div>
+<div class="left2">
+  <label class="infocli">Información clínica relevante y objetiva del estudio: </label>
+
+
+  <label class="infocli2">Adjuntar archivos con información clínica:</label>
+  <input type="file" class="botonselec" name="Seleccionar" multiple>
+      
+  <label class="infocli3">Información sobre el tratamiento:</label>
+  <br>
+  <input type="text2" class="grande" ng-model="relevInfo">
+  <input type="text2" class="grande2" ng-model="relevInfo">
+  <br>
+  <br>
+  <label class="infocli4">Edad al diagnóstico: </label>
+  <input type="text4" class="grande3" ng-model="relevInfo">
+  <label class="infocli5">Si ha habido cirugía, indique el tipo: </label>
+  <input type="text5" class="grande4" ng-model="relevInfo">
+  <label class="infocli6">Fecha del primer diagnóstico histológico: </label>
+  <input type="date" class="grande5" ng-model="relevInfo">
+  <div class="separacion">
+    <label class="declare1">Declaración de necesidad médica y consentimiento</label>
+    <br>
+
+    <input type="checkbox" unchecked />
+    <label class="declare2">Confirmo que he informado al paciente sobre las pruebas genéticas solicitadas, los
+      resultados posible, y su significado.</label>
+    <br>
+    <input type="checkbox" unchecked />
+    <label class="declare2">Confirmo que el paciente ha dado su consentimiento para las pruebas genéticas a realizar, y
+      que su consentimiento firmado se ha archivado en su expediente.</label>
+    <br>
+    <input type="checkbox" unchecked />
+    <label class="declare2">Confirmo que esta prueba es médicamente necesaria para el diagnóstico o la detección de una
+      enfermedad y que estos resultados pueden ser utilizados en las decisiones de tratamiento para este
+      paciente.</label>
+    <br>
+    <input type="checkbox" unchecked />
+    <label class="declare2">El paciente da su consentimiento al uso de su muestra por Sistemas Genómicos, SL con fines
+      de investigación.</label>
+  </div>
+</div>
+<div class="botoncitos">
+  <input type="button" value="Cancelar" onclick="">
+  <input type="button" class="solicitar" value="Solicitar" onclick="">
+</div>
+
 <router-outlet></router-outlet>
-
-
-
