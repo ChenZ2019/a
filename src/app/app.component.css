@@ -1,24 +1,225 @@
 div.p1 {
     margin: auto;
     background-color: rgb(174, 193, 223);
-    height: 320px;
-    width: 900px;
+    height: 270px;
     border-radius: 0px 0px 0px 0px;
     border: 2px solid #000000;
+    width: 900px;
   }
+div.width {
+    width: 900px;
+}
 
 div.center {
     text-align:center;
+
+    margin: auto;
+}
+div.center2 {
+    text-align:center;
+    width:1200px;
+    margin: auto;
 }
 div.left {
     text-align:left;
 }
+div.left2 {
+    text-align:left;
+    width:1500px;
+    margin: auto;
+    margin-top:70px;
+}
+div.left3 {
+    text-align:left;
+    width:1700px;
+}
 h4 {
     color: #369;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     padding-left: 10px;
+    font-family: "Comic";
+    margin-left: 10px;
   }
-div {
-    padding-left: 10px;
+label.margin0 {
+    margin-left: 20px;
+    font-size: 90%;
+}
+label.margin1 {
+    margin-left: 20px;
+    margin-right:10px;
+    font-size: 90%;
+}
+label.margin3 {
+    margin-left: 72px;
+    font-size: 90%;
+}
+label.margin4 {
+    margin-left: 95px;
+    font-size: 90%;
+}
+label.margin5 {
+    margin-left: 90px;
+    font-size: 90%;
+}
+select.menu {
+    margin-left: 20px;
+}
+input.text {
+    margin-left: 30px;
+}
+select.menu2 {
+    margin-left: 20px;
+}
+input.date {
+    margin-left: 40px;
+    width: 120px;
+}
+label.margin6 {
+    margin-left:660px;
+}
+select.menu3 {
+    margin-left: 660px;
+    width: 180px;
+}
+option.opcion {
+    margin-left: 80px;
+}
+label.Estudios {
+    margin-right: 165px;
+    font-weight: bold;
+    font-size: 80%;
+    width:1700px;
+}
+table.tabla {
+    box-align: center;
+    text-align:left;
+    font-size: 90%;
+    border-collapse: collapse;
+  }
+  table.tabla2 {
+    box-align: right;
+    text-align:left;
+    font-size: 90%;
+    border-collapse: collapse;
+  }
+  td.a { 
+    border-bottom-color: black;
+    border-bottom-style: double;
+    padding: 0em 1em;;
+    border-width: 0 0 3px 0;
+
+}
+label.Sell {
+    margin-right: 1010px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+div.menu123 {
+    text-align:center;
+    margin-bottom: 130px;
+}
+table.tabla {
+    counter-reset: rowNumber;
+
+  }
+  table.tabla tr {
+    counter-increment: rowNumber;
+  }
+
+  table.tabla tr td:first-child::before{
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+
+  }
+  .grande {
+    width: 350px;
+    height: 100px;
+  }
+  .grande2 {
+    width: 590px;
+    height: 100px;
+    margin-left:560px;
+  }
+  .grande3 {
+    width: 100px;
+    margin-left:10px;
+  }
+  .grande4 {
+    width: 200px;
+    margin-left:10px;
+  }
+  
+  label.infocli {
+      font-size: 80%;
+  }
+  label.infocli2 {
+    font-size: 80%;
+    margin-left: 100px;
+}
+label.infocli3 {
+    font-size: 80%;
+    margin-left: 52px;
+}
+label.infocli4 {
+    font-size: 80%;
+}
+label.infocli5 {
+    font-size: 80%;
+    margin-left: 155px;
+}
+label.infocli6 {
+    font-size: 80%;
+    margin-left: 300px;
+}
+label.declare1 {
+    font-size: 80%;
+    font-weight: bold;
+}
+label.declare2 {
+    font-size: 80%;
+    margin-left: 10px;
+}
+input.botonselec {
+    margin-left: 20px;
+    font-size: 80%;
+    display: initial;
+}
+div.separacion {
+    margin-top:50px;
+    margin-bottom:100px;
+
+}
+div.botoncitos {
+    text-align: right;
+    margin-right: 20px;
+    margin-block-end: 20px;
+
+}
+input.solicitar {
+    margin-left: 20px;
+
+}
+
+input.employee {
+    width: 550px;
+}
+
+div.buttonAdd {
+   text-align: right; 
+}
+
+input.boxinf {
+    margin-left: 40px;
+}
+label.declareOnco {
+    font-size: 80%;
+}
+
+button.lapiz button:first-child::after {
+    content: "✏️" counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
 }
