@@ -127,10 +127,12 @@ table.tabla {
   table.tabla tr {
     counter-increment: rowNumber;
   }
-  table.tabla tr td:first-child::before {
+
+  table.tabla tr td:first-child::before{
     content: counter(rowNumber);
     min-width: 1em;
     margin-right: 0.5em;
+
   }
   .grande {
     width: 350px;
@@ -214,4 +216,10 @@ input.boxinf {
 }
 label.declareOnco {
     font-size: 80%;
+}
+
+button.lapiz button:first-child::after {
+    content: "✏️" counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
 }

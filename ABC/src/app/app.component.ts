@@ -1,7 +1,11 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { Table } from './Table';
 import {GroupOptions} from './GroupOptions';
-import {Gene} from './Checker';
+import {Gene} from './Gene';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogData } from './DialogData';
+import {DialogOverviewExampleDialog} from './dialog-overview-example-dialog/dialog-overview-example-dialog';
+import {MatDialogModule} from '@angular/material';
 
 const panel170:String = "Panel Cáncer 170";
 
@@ -16,6 +20,10 @@ export class AppComponent implements OnInit {
   panel: String;
   genes: Array<Gene>;
   selectedvalue: boolean;
+
+  constructor(private dialog: MatDialog){
+
+  }
 
   ngOnInit() {
     let group : GroupOptions = new GroupOptions();
@@ -76,6 +84,20 @@ private gene(name: String): Gene{
     for(let i:number=0;i<this.genes.length;i++) {
       this.genes[i].selected=this.selectedvalue;
     }
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '1000px',
+      height: '800px',
+      data: {name: "hola", animal: "hola"}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
+
   }
 
 }

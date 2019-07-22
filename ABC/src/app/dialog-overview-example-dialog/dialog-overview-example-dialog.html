@@ -1,0 +1,95 @@
+<h1 mat-dialog-title>Detalles de la muestra número {{data.name}}</h1>
+<hr style="border-top: dotted 1px;">
+<div mat-dialog-content>
+  <i class="infocli">Referencia de la muestra*</i>
+  <i class="infocli">Tipo*</i>
+  <i class="infocli">Localización*</i>
+  <i class="infocli">Estadio/grado*</i>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+ 
+      <select class="menu2">
+          <option>Tumor primario</option>
+          <option>Metástasis</option>
+          <option>Recidiva</option>
+          <option>Tejido sano</option>
+        </select>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+
+  <br>
+
+  <label class="infocli">Notas</label>
+  <br>
+  <mat-form-field>
+      <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+    <br>
+    <i class="infocli">Diagnóstico histopatológico: *</i>
+    <i class="infocli">Subtipo:</i>
+    <br>
+    <select class="menu2">
+        <option>Tumor primario</option>
+        <option>Metástasis</option>
+        <option>Recidiva</option>
+        <option>Tejido sano</option>
+      </select>
+      <select class="menu2">
+          <option>Tumor primario</option>
+          <option>Metástasis</option>
+          <option>Recidiva</option>
+          <option>Tejido sano</option>
+        </select>
+  <br>
+  <i class="declare1">Otros marcadores:</i>
+  <br>
+
+  <input type="checkbox" unchecked />
+  <i class="declare2">IHQ</i>
+  <input type="text" class="employee">
+  <br>
+  <input type="checkbox" unchecked />
+  <i class="declare2">IMS</i>
+  <input type="text" class="employee">
+  <br>
+  <input type="checkbox" unchecked />
+  <i class="declare2">Cariotipo</i>
+  <input type="text" class="employee">
+  <br>
+  <input type="checkbox" unchecked />
+  <i class="declare2">FISH</i>
+  <input type="text" class="employee">
+  <br>
+  <input type="checkbox" unchecked />
+  <i class="declare2">Otros</i>
+  <input type="text" class="employee">
+  <br>
+  <label class="infocli6">Fecha de extracción* </label>
+  <input type="date" class="grande5" ng-model="relevInfo">
+  <label class="infocli5">Tiempo desde la resección hasta el inicio de la conservación </label>
+  <input type="text5" class="grande4" ng-model="relevInfo">
+  <br>
+  <label class="infocli">Tipo de muestra*</label>
+  <select class="menu2">
+      <option>Tejido tumoral congelado</option>
+      <option>Tejido tumoral parafinado</option>
+      <option>ADN tumoral</option>
+      <option>ARN tumoral</option>
+      <option>Otro</option>
+    </select>
+  <label class="infocli5">Porcentaje de células tumorales de la muestra * </label>
+  <input type="text5" class="grande4" ng-model="relevInfo">
+
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Añadir</button>
+</div>
