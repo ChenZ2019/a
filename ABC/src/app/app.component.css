@@ -155,11 +155,17 @@ table.tabla {
   label.infocli {
       font-size: 80%;
   }
+
   label.infocli2 {
     font-size: 80%;
     margin-left: 100px;
 }
+
 label.infocli3 {
+    font-size: 80%;
+    margin-left: 52px;
+}
+i.infocli3 {
     font-size: 80%;
     margin-left: 52px;
 }
@@ -216,10 +222,4 @@ input.boxinf {
 }
 label.declareOnco {
     font-size: 80%;
-}
-
-button.lapiz button:first-child::after {
-    content: "✏️" counter(rowNumber);
-    min-width: 1em;
-    margin-right: 0.5em;
 }

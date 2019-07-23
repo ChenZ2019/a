@@ -105,29 +105,30 @@
       <td class="a"></td>
       <td class="a"></td>
 
-      <tr *ngFor="let row of table">
-        <td><button style="font-size:20px" class="fa" (click)="openDialog()">&#xf040;</button></td>
-        <td><input type="text" value="{{row.employeeRef}}"></td>
-        <td><input type="text" value="{{row.employeeTipo}}"></td>
-        <td><input type="text" value="{{row.employeeLoc}}"></td>
-        <td><input type="text" class="employee" value="{{row.employeeNotas}}"></td>
+      <tr *ngFor="let row of table; let i=index">
+        <td><button style="font-size:20px" class="fa" (click)="openDialog(i+1)">&#xf040;</button></td>
+        <td><input type="text" value="{{row.sampleRef}}"></td>
+        <td><input type="text" value="{{row.sampleType}}"></td>
+        <td><input type="text" value="{{row.sampleLoc}}"></td>
+        <td><input type="text" class="sample" value="{{row.sampleNotas}}"></td>
         <td><input type="button" value="-" (click)="deleteRow(row)"></td>
-
-      </tr>
-      <tr>
-        <td><button style="font-size:20px" class="fa" (click)="openDialog()">&#xf040;</button></td>
-        <td><input type="text" value="{{row.employeeRef}}"></td>
-        <td><input type="text" value="{{row.employeeTipo}}"></td>
-        <td><input type="text" value="{{row.employeeLoc}}"></td>
-        <td><input type="text" class="employee" value="{{row.employeeNotas}}"></td>
-        <td><input type="button" value="-" (click)="deleteRow(row)"></td>
-        <td>
-          <div class="buttonAdd"><input type="button" (click)="addElement()" value="+"></div>
+        <td *ngIf="i==table.length-1">
+          <div class="buttonAdd"><input type="button" (click)="openDialog(table.length)" value="+"></div>
         </td>
-
       </tr>
 
+      <tr *ngIf="table.length==0">
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="buttonAdd"><input type="button" (click)="openDialog()" value="+"></div>
+          </td>
 
+      </tr>
     </table>
 
   </div>

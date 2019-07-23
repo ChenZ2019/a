@@ -3,9 +3,7 @@ import { Table } from './Table';
 import {GroupOptions} from './GroupOptions';
 import {Gene} from './Gene';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DialogData } from './DialogData';
 import {DialogOverviewExampleDialog} from './dialog-overview-example-dialog/dialog-overview-example-dialog';
-import {MatDialogModule} from '@angular/material';
 
 const panel170:String = "Panel Cáncer 170";
 
@@ -36,7 +34,6 @@ export class AppComponent implements OnInit {
     group2.options = new Array<String>();
     group2.options = ["Panel LEUCEMIA MIELOIDE AGUDA","Panel MYELOID NEOPLASM"];
     this.options = [group, group2];
-
     this.genes = [
     this.gene('ABL1'),this.gene('BRCA2'),this.gene('CHEK2'),this.gene('ETV1'),this.gene('FGF5'),this.gene('HNF1A'),this.gene('MDM4'),this.gene('NOTCH1'),this.gene('PIK3CG'),this.gene('ROS1'),
     this.gene('AKT1'),this.gene('BRIP1'),this.gene('CREBBP'),this.gene('ETV4'),this.gene('FGF6'),this.gene('HRAS'),this.gene('MET'),this.gene('NOTCH2'),this.gene('PIK3R1'),this.gene('RPS6KB1'),
@@ -55,7 +52,6 @@ export class AppComponent implements OnInit {
     this.gene('BCL6'),this.gene('CDKN2A'),this.gene('ERG'),this.gene('FGF23'),this.gene('GNA11'),this.gene('MAP2K2'),this.gene('MYD88'),this.gene('PIK3CA'),this.gene('RB1'),this.gene('TSC2'),
     this.gene('BRAF'),this.gene('CEBPA'),this.gene('ESR1'),this.gene('FGF3'),this.gene('GNAQ'),this.gene('MCL1'),this.gene('NBN'),this.gene('PIK3CB'),this.gene('RET'),this.gene('VHL'),
     this.gene('BRCA1'),this.gene('CHEK1'),this.gene('ETF1'),this.gene('FGF4'),this.gene('GNAS'),this.gene('MDM2'),this.gene('NF1'),this.gene('PIK3CD'),this.gene('RICTOR'),this.gene('XRCC2'),
-
   ];
 }
 
@@ -66,14 +62,10 @@ private gene(name: String): Gene{
   return gene;
 }
 
-  addElement(){
-    let row:Table=new Table();
-    this.table.push(row);
-  }
-
   deleteRow(row:Table){
     let index:number = this.table.indexOf(row);
     this.table.splice(index,1);
+    
     }
 
     showChecks():boolean {
@@ -86,16 +78,20 @@ private gene(name: String): Gene{
     }
   }
 
-  openDialog(): void {
+  openDialog(ref: number): void {
+
+    if(ref == undefined){
+      ref = 1;
+    }
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '1000px',
       height: '800px',
-      data: {name: "hola", animal: "hola"}
+      data: ref,
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      //this.animal = result;
+      this.table.push(result);
     });
 
   }

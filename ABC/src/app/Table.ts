@@ -1,7 +1,7 @@
 export class Table {
-    employeeRef : String;
-    employeeTipo : String;
-    employeeLoc : String;
-    employeeNotas : String;
+    sampleRef : String;
+    sampleType : String;
+    sampleLoc : String;
+    sampleNotas : String;
     
 }

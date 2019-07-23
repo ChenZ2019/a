@@ -1,95 +1,101 @@
-<h1 mat-dialog-title>Detalles de la muestra número {{data.name}}</h1>
-<hr style="border-top: dotted 1px;">
+<h1 mat-dialog-title>Detalles de la muestra número {{ref}}:</h1>
+<hr style="border-top: solid 1px; margin-top: -15px">
+<br>
 <div mat-dialog-content>
-  <i class="infocli">Referencia de la muestra*</i>
-  <i class="infocli">Tipo*</i>
-  <i class="infocli">Localización*</i>
-  <i class="infocli">Estadio/grado*</i>
-  <br>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
- 
-      <select class="menu2">
-          <option>Tumor primario</option>
-          <option>Metástasis</option>
-          <option>Recidiva</option>
-          <option>Tejido sano</option>
-        </select>
+  <i style="font-size: 90%">Referencia de la muestra*</i>
+  <i style="margin-left: 35px; font-size: 90%">Tipo*</i>
+  <i style="margin-left: 125px; font-size: 90%">Localización*</i>
+  <i style="margin-left: 125px; font-size: 90%">Estadio/grado</i>
+  <br >
 
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-  <mat-form-field>
-      <input matInput [(ngModel)]="data.animal">
-    </mat-form-field>
+    <input style="width: 150px" matInput [(ngModel)]="row.sampleRef">
 
-  <br>
-
-  <label class="infocli">Notas</label>
-  <br>
-  <mat-form-field>
-      <input matInput [(ngModel)]="data.animal">
-    </mat-form-field>
-    <br>
-    <i class="infocli">Diagnóstico histopatológico: *</i>
-    <i class="infocli">Subtipo:</i>
-    <br>
-    <select class="menu2">
-        <option>Tumor primario</option>
-        <option>Metástasis</option>
-        <option>Recidiva</option>
-        <option>Tejido sano</option>
+    <select style="margin-left: 30px" class="menu2">
+        <option *ngFor="let illness of illnesses" [value]=illness.id>{{illness.type}}</option>
       </select>
-      <select class="menu2">
-          <option>Tumor primario</option>
-          <option>Metástasis</option>
-          <option>Recidiva</option>
-          <option>Tejido sano</option>
+
+    <input style="margin-left: 35px; font-size: 90%" matInput [(ngModel)]="row.sampleLoc">
+
+      <input style="width: 120px; margin-left: 40px; font-size: 90%" matInput [(ngModel)]="row.sampleEstadio">
+ 
+  <br>
+  <br>
+
+  <i class="infocli">Notas</i>
+  <br>
+
+      <input style= "width: 800px" matInput [(ngModel)]="row.sampleNotas">
+    <br>
+    <br>
+    <i>Diagnóstico histopatológico: *</i>
+    <i style="margin-left: 140px;">Subtipo:</i>
+    <br>
+    <select style= "width: 270px">
+        <option>?</option>
+        <option>?</option>
+        <option>?</option>
+        <option>?</option>
+      </select>
+      <select style= "width: 270px; margin-left: 50px">
+          <option>?</option>
+          <option>?</option>
+          <option>?</option>
+          <option>?</option>
         </select>
+  <br>
   <br>
   <i class="declare1">Otros marcadores:</i>
   <br>
 
   <input type="checkbox" unchecked />
-  <i class="declare2">IHQ</i>
-  <input type="text" class="employee">
+  <i style="margin-left: 10px;">IHQ</i>
+  <input type="text" style="width: 370px;margin-left: 50px;">
   <br>
   <input type="checkbox" unchecked />
-  <i class="declare2">IMS</i>
-  <input type="text" class="employee">
+  <i style="margin-left: 10px;">IMS</i>
+  <input type="text" style="width: 370px;margin-left: 50px;">
   <br>
   <input type="checkbox" unchecked />
-  <i class="declare2">Cariotipo</i>
-  <input type="text" class="employee">
+  <i style="margin-left: 10px;">Cariotipo</i>
+  <input type="text" style="width: 370px;margin-left: 18px;">
   <br>
   <input type="checkbox" unchecked />
-  <i class="declare2">FISH</i>
-  <input type="text" class="employee">
+  <i style="margin-left: 10px;">FISH</i>
+  <input type="text" style="width: 370px;margin-left: 43px;">
   <br>
   <input type="checkbox" unchecked />
-  <i class="declare2">Otros</i>
-  <input type="text" class="employee">
+  <i style="margin-left: 10px;">Otros</i>
+  <input type="text" style="width: 370px;margin-left: 40px;">
   <br>
-  <label class="infocli6">Fecha de extracción* </label>
+  <br>
+  <i>Fecha de extracción* </i>
   <input type="date" class="grande5" ng-model="relevInfo">
-  <label class="infocli5">Tiempo desde la resección hasta el inicio de la conservación </label>
-  <input type="text5" class="grande4" ng-model="relevInfo">
+  <i style="margin-left: 40px;">Tiempo desde la resección hasta el inicio de la conservación* </i>
+  <input type="text5" style="width: 220px" ng-model="relevInfo">
   <br>
-  <label class="infocli">Tipo de muestra*</label>
-  <select class="menu2">
+  <br>
+  <i>Tipo de muestra*</i>
+  <select style="width: 270px;margin-left: 10px">
       <option>Tejido tumoral congelado</option>
       <option>Tejido tumoral parafinado</option>
       <option>ADN tumoral</option>
       <option>ARN tumoral</option>
       <option>Otro</option>
     </select>
-  <label class="infocli5">Porcentaje de células tumorales de la muestra * </label>
-  <input type="text5" class="grande4" ng-model="relevInfo">
+  <i style="margin-left: 100px">Porcentaje de células tumorales de la muestra * </i>
+  <input type="text5" style="width: 60px; margin-left: 10px" ng-model="relevInfo">
+<br>
+<br>
+<input type="checkbox" unchecked [(ngModel)]="checkref"/>
+<i style="margin-left: 10px;">Se acompaña de una muestra de ARN tumoral pareada.</i>
+<i style="margin-left: 40px" [ngStyle]="{'color': !checkref ? 'rgb(127, 128, 129)': '#000'}" >Referencia de muestra*</i>
+<input [disabled]="!checkref" ng-disabled="checkref" type="text5" style="margin-left: 10px; width: 220px" ng-model="relevInfo">
+</div>
+
+<div style="margin-top: 150px" align="end" >
+  <button mat-button [mat-dialog-close]>Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="save()">Añadir</button>
+</div>
 
 
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Añadir</button>
-</div>
+<!----(click)="onNoClick()"--->
