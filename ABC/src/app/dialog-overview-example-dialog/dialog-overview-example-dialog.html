@@ -71,19 +71,15 @@
   <i>Fecha de extracción* </i>
   <input type="date" class="grande5" ng-model="relevInfo">
   <i style="margin-left: 40px;">Tiempo desde la resección hasta el inicio de la conservación* </i>
-  <input type="text5" style="width: 220px" ng-model="relevInfo">
+  <input type="text5" style="width: 220px" [(ngModel)]="row.sampleTime" ng-model="relevInfo">
   <br>
   <br>
   <i>Tipo de muestra*</i>
-  <select style="width: 270px;margin-left: 10px">
-      <option>Tejido tumoral congelado</option>
-      <option>Tejido tumoral parafinado</option>
-      <option>ADN tumoral</option>
-      <option>ARN tumoral</option>
-      <option>Otro</option>
+  <select [(ngModel)]="row.sampleTypeOf" style="width: 270px;margin-left: 10px">
+    <option *ngFor="let typeofsample of typesofsample" [value]=typeofsample.type>{{typeofsample.type}}</option>
     </select>
   <i style="margin-left: 100px">Porcentaje de células tumorales de la muestra * </i>
-  <input type="text5" style="width: 60px; margin-left: 10px" ng-model="relevInfo">
+  <input type="text5" style="width: 60px; margin-left: 10px" [(ngModel)]="row.samplePercentage" ng-model="relevInfo">
 <br>
 <br>
 <input type="checkbox" unchecked [(ngModel)]="checkref"/>

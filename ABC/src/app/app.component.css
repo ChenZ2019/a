@@ -4,83 +4,15 @@ div.p1 {
     height: 270px;
     border-radius: 0px 0px 0px 0px;
     border: 2px solid #000000;
-    width: 900px;
+    width: 800px;
   }
-div.width {
-    width: 900px;
-}
-
-div.center {
-    text-align:center;
-
-    margin: auto;
-}
-div.center2 {
-    text-align:center;
-    width:1200px;
-    margin: auto;
-}
-div.left {
-    text-align:left;
-}
-div.left2 {
-    text-align:left;
-    width:1500px;
-    margin: auto;
-    margin-top:70px;
-}
-div.left3 {
-    text-align:left;
-    width:1700px;
-}
 h4 {
     color: #369;
-    font-size: 100%;
+    font-size: 120%;
     padding-left: 10px;
-    font-family: "Comic";
     margin-left: 10px;
+    margin-top: 20px;
   }
-label.margin0 {
-    margin-left: 20px;
-    font-size: 90%;
-}
-label.margin1 {
-    margin-left: 20px;
-    margin-right:10px;
-    font-size: 90%;
-}
-label.margin3 {
-    margin-left: 72px;
-    font-size: 90%;
-}
-label.margin4 {
-    margin-left: 95px;
-    font-size: 90%;
-}
-label.margin5 {
-    margin-left: 90px;
-    font-size: 90%;
-}
-select.menu {
-    margin-left: 20px;
-}
-input.text {
-    margin-left: 30px;
-}
-select.menu2 {
-    margin-left: 20px;
-}
-input.date {
-    margin-left: 40px;
-    width: 120px;
-}
-label.margin6 {
-    margin-left:660px;
-}
-select.menu3 {
-    margin-left: 660px;
-    width: 180px;
-}
 option.opcion {
     margin-left: 80px;
 }

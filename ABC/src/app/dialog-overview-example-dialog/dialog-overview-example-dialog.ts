@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Table } from '../Table';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Illness } from './Illness';
+import { TypeOfSample } from './TypeOfSample';
 
 
 /**
@@ -24,6 +25,14 @@ export class DialogOverviewExampleDialog {
     {type: "Metástasis"},
     {type: "Recidiva"},
     {type: "Tejido sano"}
+  ];
+
+  typesofsample: TypeOfSample[] = [
+    {type: "Tejido pulmonar congelado"},
+    {type: "Tejido pulmonar parafinado"},
+    {type: "ADN tumoral"},
+    {type: "ARN tumoral"},
+    {type: "Otros"}
   ];
 
   constructor(
