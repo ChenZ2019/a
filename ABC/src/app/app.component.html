@@ -96,24 +96,24 @@
     <label class="Sell">Selección de individuos y muestras</label>
     <br>
     <br>
-    <table class="tabla">
+    <table margin-left="10px" class="tabla">
       <td></td>
       <td class="a" width="200">Referencia muestra*</td>
-      <td class="a" width="150">Tipo*</td>
-      <td class="a" width="150">Localización*</td>
+      <td class="a" width="200">Tipo*</td>
+      <td class="a" width="200">Localización*</td>
       <td class="a" width="900">Notas*</td>
       <td class="a"></td>
       <td class="a"></td>
 
       <tr *ngFor="let row of table; let i=index">
-        <td><button style="font-size:20px" class="fa" (click)="openDialog(i+1)">&#xf040;</button></td>
-        <td><input type="text" value="{{row.sampleRef}}"></td>
-        <td><input type="text" value="{{row.sampleType}}"></td>
-        <td><input type="text" value="{{row.sampleLoc}}"></td>
-        <td><input type="text" class="sample" value="{{row.sampleNotas}}"></td>
+        <td><button style="font-size:20px" class="fa" (click)="openDialog(i+1, row)">&#xf040;</button></td>
+        <td style="padding: 0em 1em">{{row.sampleRef}}</td>
+        <td style="padding: 0em 1em">{{row.sampleType}}</td>
+        <td style="padding: 0em 1em">{{row.sampleLoc}}</td>
+        <td style="padding: 0em 1em">{{row.sampleNotas}}</td>
         <td><input type="button" value="-" (click)="deleteRow(row)"></td>
         <td *ngIf="i==table.length-1">
-          <div class="buttonAdd"><input type="button" (click)="openDialog(table.length)" value="+"></div>
+          <div class="buttonAdd"><input type="button" (click)="openDialog(table.length+1)" value="+"></div>
         </td>
       </tr>
 

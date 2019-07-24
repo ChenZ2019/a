@@ -10,8 +10,8 @@
 
     <input style="width: 150px" matInput [(ngModel)]="row.sampleRef">
 
-    <select style="margin-left: 30px" class="menu2">
-        <option *ngFor="let illness of illnesses" [value]=illness.id>{{illness.type}}</option>
+    <select [(ngModel)]="row.sampleType" style="margin-left: 30px" class="menu2">
+        <option *ngFor="let illness of illnesses" [value]=illness.type>{{illness.type}}</option>
       </select>
 
     <input style="margin-left: 35px; font-size: 90%" matInput [(ngModel)]="row.sampleLoc">
@@ -94,7 +94,7 @@
 
 <div style="margin-top: 150px" align="end" >
   <button mat-button [mat-dialog-close]>Cancelar</button>
-  <button mat-button cdkFocusInitial (click)="save()">Añadir</button>
+  <button mat-button cdkFocusInitial (click)="save()">Aceptar</button>
 </div>
 
 

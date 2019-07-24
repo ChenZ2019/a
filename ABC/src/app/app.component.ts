@@ -78,7 +78,7 @@ private gene(name: String): Gene{
     }
   }
 
-  openDialog(ref: number): void {
+  openDialog(ref: number, row: Table): void {
 
     if(ref == undefined){
       ref = 1;
@@ -86,14 +86,25 @@ private gene(name: String): Gene{
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '1000px',
       height: '800px',
-      data: ref,
+      data: {ref: ref, row: row},
 
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.table.push(result);
+      let i: number = this.table.indexOf(result);
+      if (result != null && !this.exists(result)){
+        this.table.push(result);
+      }
     });
+  }
 
+  private exists(row: Table): boolean{
+    for(let i:number = 0; i<this.table.length; i++){
+      if(row.sampleRef == this.table[i].sampleRef){
+        return true;
+      }
+    }
+    return false;
   }
 
 }

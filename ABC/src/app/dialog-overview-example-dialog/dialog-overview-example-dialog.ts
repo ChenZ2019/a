@@ -17,21 +17,23 @@ export class DialogOverviewExampleDialog {
 
   row: Table = new Table();
   checkref: boolean;
+  ref:number;
 
   illnesses: Illness[] = [
-    {id:1, type: "Tumor primario"},
-    {id:2, type: "Metástasis"},
-    {id:3, type: "Recidiva"},
-    {id:4, type: "Tejido sano"}
+    {type: "Tumor primario"},
+    {type: "Metástasis"},
+    {type: "Recidiva"},
+    {type: "Tejido sano"}
   ];
 
   constructor(
     public dialogRef: MatDialogRef<Table>,
-    @Inject(MAT_DIALOG_DATA) public ref : number){}
-    
-
-  
-
+    @Inject(MAT_DIALOG_DATA) public data : any){
+      this.ref = data.ref;
+      if(data.row != null){
+        this.row = Object.assign({}, data.row);
+      }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -42,7 +44,11 @@ export class DialogOverviewExampleDialog {
   }
 
   save(): void {
-    this.dialogRef.close({data:this.row});
+    if(this.data.row != null){
+      Object.assign(this.data.row, this.row);
+    }
+    this.dialogRef.close(this.row);
+
   }
 
 }
