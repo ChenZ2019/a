@@ -1,0 +1,329 @@
+<html>
+
+<head>
+  <!-- Place your kit's code here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <form name="form" (ngSubmit)="f.form.valid && !isTableEmpty() && onSubmit()" #f="ngForm" novalidate>
+      <h3>SOLICITUD DE ESTUDIO GENOMICO DE TUMORES ESPORÁTICOS Y ONCOHEMATOLOGÍA</h3>
+      <br>
+      <div class="informacionDelPaciente">
+
+          <h4>Información del paciente</h4>
+
+          <div style="display:flex">
+            <div>
+              <p style="margin-left: 20px; height:40px;">Nombre *
+                <input class="inputdata" name="name" type="text" size="17" [(ngModel)]="model.name" #name="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required />
+                <br>
+                <i *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+                  <i class="red" style="margin-left: 60px;" *ngIf="name.errors.required">Se requiere un nombre</i>
+                </i>
+              </p>
+            </div>
+            <div>
+              <p style="margin-left:20px">Apellidos *
+                <input class="inputdata" name="surname" type="text" size="60" [(ngModel)]="model.surname"
+                  #surname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && surname.invalid }" required>
+                <br>
+                <i *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
+                  <i class="red" style="margin-left:68px" *ngIf="surname.errors.required">Se requiere un
+                    apellido</i>
+                </i>
+              </p>
+            </div>
+          </div>
+          <br>
+          <div style="display:flex">
+
+            <div>
+              <p style="margin-left: 20px;">Tipo documento *
+                <br>
+                <select class="inputdata" name="docsType" [(ngModel)]="model.docsType" #docsType="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && docsType.invalid }" required>
+                  <option *ngFor="let type of typesofdoc" [value]=type.type>{{type.type}}</option>
+                </select>
+                <br>
+                <i *ngIf="f.submitted && docsType.invalid" class="invalid-feedback">
+                  <i class="red" *ngIf="docsType.errors.required">Campo requerido</i>
+                </i>
+              </p>
+            </div>
+            <div>
+              <p style="margin-left: 50px;">Núm. documento *
+                <br>
+                <input class="inputdata" name="idDoc" [(ngModel)]="model.idDoc" #idDoc="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && idDoc.invalid }" required>
+                <br>
+                <i *ngIf="f.submitted && idDoc.invalid" class="invalid-feedback">
+                  <i class="red" *ngIf="idDoc.errors.required">Campo requerido</i>
+                </i>
+              </p>
+            </div>
+            <div>
+              <p style="margin-left: 47px;">Género *
+                <br>
+                <select class="inputdata" name="gendersType" [(ngModel)]="model.gendersType" #gendersType="ngModel"
+                  [ngClass]="{ 'is-invalid': f.submitted && gendersType.invalid }" required>
+                  <option *ngFor="let type of genders" [value]=type.type>{{type.type}}</option>
+                </select>
+                <br>
+                <i *ngIf="f.submitted && gendersType.invalid" class="invalid-feedback">
+                  <i class="red" *ngIf="gendersType.errors.required">Campo requerido</i>
+                </i>
+              </p>
+            </div>
+            <div>
+              <p style="margin-left: 50px;height: 60px">Fecha de Nacimiento *
+                <input class="inputdata" name="date" style="width: 120px;" type="date" [(ngModel)]="model.date"
+                  #date="ngModel" [ngClass]="{ 'is-invalid': f.submitted && date.invalid }" required>
+                <br>
+                <i *ngIf="f.submitted && date.invalid" class="invalid-feedback">
+                  <i class="red" *ngIf="date.errors.required">Campo requerido</i>
+                </i>
+              </p>
+            </div>
+          </div>
+          <br>
+          <p style="margin-left: 558px;">Grupo étnico *
+            <br>
+            <select class="inputdata" name="ethnicitiesType" [(ngModel)]="model.ethnicitiesType" style="width: 180px;"
+              #ethnicitiesType="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ethnicitiesType.invalid }" required>
+              <option *ngFor="let type of ethnicities" [value]=type.type>{{type.type}}</option>
+            </select>
+            <br>
+            <i *ngIf="f.submitted && ethnicitiesType.invalid" class="invalid-feedback">
+              <i class="red" *ngIf="ethnicitiesType.errors.required">Campo requerido</i>
+            </i>
+          </p>
+
+      </div>
+      <br>
+      <br>
+      <div style="text-align:center; margin-bottom: 90px;">
+        <p style="height: 60px">Estudios solicitados
+          <br>
+          <select class="inputdata" name="menu" [(ngModel)]="panel" #menu="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && menu.invalid }" required>
+            <optgroup *ngFor="let group of options" label="{{group.group}}">
+              <option value="{{option}}" *ngFor="let option of group.options" label="{{option}}"></option>
+            </optgroup>
+
+          </select>
+          <br>
+          <i *ngIf="f.submitted && menu.invalid" class="invalid-feedback">
+            <i class="red" *ngIf="menu.errors.required">Especifica los estudios solicitados</i>
+          </i>
+        </p>
+        <!-- *ngIf="showChecks()"-->
+        <div *ngIf="showChecks()" class="showChecks">
+            <br>
+
+            <div class="checks">
+              <div style="width: 200px; text-align: left">
+                <input style=" margin-left: 15px" type="checkbox" unchecked [(ngModel)]="selectedvalue"
+                  name="selectedvalue" (change)="selectDeselectAll()" /> Seleccionar todos
+              </div>
+              <br>
+              <div style="height: 150px">
+                <div class="col-md-1" *ngFor="let checker of genes" style="width: 111px; text-align: left">
+
+
+                  <input type="checkbox" text-align="left" [(ngModel)]="checker.selected"
+                    #checker.selected="ngModel" name="checker.selected">{{checker.gene}}
+
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+
+      <div style="width:1200px; margin: auto;">
+        <h4> Selección de individuos y muestras</h4>
+        <br>
+        <table name="tabla">
+
+          <td>#</td>
+          <td width="200">Referencia muestra*</td>
+          <td width="200">Tipo*</td>
+          <td width="200">Localización*</td>
+          <td width="900">Notas*</td>
+          <td></td>
+          <td></td>
+          <td>
+            <div *ngIf="isTableEmpty ()" class="invalid-feedback"><i class="fa fa-plus-square" style="color:#008caa"
+                (click)="openDialog()"></i></div>
+          </td>
+
+
+          <tr *ngFor="let row of table; let i=index">
+            <td></td>
+            <td>{{row.sampleRef}}</td>
+            <td>{{row.sampleType}}</td>
+            <td>{{row.sampleLoc}}</td>
+            <td>{{row.sampleNotas}}</td>
+
+            <td><i class="fa fa-edit" style="color:#008caa" (click)="openDialog(i+1, row)"></i></td>
+            <td><i class="fa fa-minus-square" style="color:#d9534f" (click)="deleteRow(row)"></i></td>
+            <td>
+              <div *ngIf="i==table.length-1" style="text-align: right;"><i class="fa fa-plus-square"
+                  style="color:#008caa" (click)="openDialog(table.length+1)"></i></div>
+            </td>
+
+          </tr>
+
+        </table>
+        <div style="height: 20px; text-align: center;">
+          <i *ngIf="f.submitted && isTableEmpty ()" class="invalid-feedback">
+            <i class="red">Al menos una muestra debe ser añadida</i>
+          </i>
+        </div>
+      </div>
+
+    <div class="moreInfo">
+
+        <div style="display:flex">
+
+          <div>
+            <p> Información clínica relevante y objetiva del estudio:
+
+              <textarea class="inputdata" name="relevantInfo" rows="5" cols="40"
+                [(ngModel)]="model.relevantInfo"></textarea>
+            </p>
+          </div>
+
+          <div>
+            <p>Adjuntar archivos con información clínica:
+              <input type="file" style="display: initial" name="Seleccionar" multiple
+                #Seleccionar="ngModel" [(ngModel)]="file">
+            </p>
+          </div>
+
+          <div>
+            <p>Información sobre el tratamiento:
+              <textarea class="inputdata" rows="5" cols="70" [(ngModel)]="treatmentInfo"
+                name="treatmentInfo"></textarea>
+            </p>
+          </div>
+
+          <br>
+
+        </div>
+
+        <br>
+        <br>
+
+        <div style="display:flex">
+
+          <div>
+            <p>Edad al diagnóstico:
+              <input class="inputdata" type="text" style="width: 100px; margin-left:10px;" [(ngModel)]="age"
+                name="age">
+            </p>
+          </div>
+
+          <div>
+            <p style="margin-left: 81px;">Si ha habido cirugía, indique el tipo:
+
+              <input class="inputdata" type="text" style="width: 200px;margin-left:10px;" [(ngModel)]="typeSurgery"
+                name="typeSurgery">
+            </p>
+          </div>
+
+          <div>
+            <p style="margin-left: 81px;">Fecha del primer diagnóstico histológico:
+              <input class="inputdata" type="date" [(ngModel)]="firstDiagnosticDate" name="firstDiagnosticDate">
+            </p>
+          </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="declaration" style="height:140px">
+      <p style="font-weight: bold;">Declaración de necesidad médica y consentimiento</p>
+      <input type="checkbox" unchecked [(ngModel)]="model.inform" name="inform" #inform="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && (inform.invalid||consent.invalid||diagnostic.invalid||investigative.invalid) }"
+        required>
+      <i class="declarationMargin">Confirmo que he informado al paciente sobre las pruebas
+        genéticas
+        solicitadas, los
+        resultados posible, y su significado.</i>
+      <br>
+      <input type="checkbox" unchecked [(ngModel)]="model.consent" name="consent" #consent="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && (inform.invalid||consent.invalid||diagnostic.invalid||investigative.invalid) }"
+        required>
+      <i class="declarationMargin">Confirmo que el paciente ha dado su consentimiento para las
+        pruebas genéticas a realizar, y
+        que su consentimiento firmado se ha archivado en su expediente.</i>
+      <br>
+      <input type="checkbox" unchecked [(ngModel)]="model.diagnostic" name="diagnostic" #diagnostic="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && (inform.invalid||consent.invalid||diagnostic.invalid||investigative.invalid)}"
+        required>
+      <i class="declarationMargin">Confirmo que esta prueba es médicamente necesaria para el
+        diagnóstico o la detección de una
+        enfermedad y que estos resultados pueden ser utilizados en las decisiones de tratamiento para este
+        paciente.</i>
+      <br>
+      <input type="checkbox" unchecked [(ngModel)]="model.investigative" name="investigative" #investigative="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && (inform.invalid||consent.invalid||diagnostic.invalid||investigative.invalid) }"
+        required>
+      <i class="declarationMargin">El paciente da su consentimiento al uso de su muestra por
+        Sistemas
+        Genómicos, SL con fines
+        de investigación.</i>
+      <br>
+      <i *ngIf="f.submitted && (!model.diagnostic||!model.consent||!model.inform||!model.investigative)"
+        class="invalid-feedback">
+        <i class="red" style="margin-left: 23px">Confirma todos los campos</i>
+      </i>
+    </div>
+
+    <div class="buttonSet down">
+      <div class="container">
+        <input class="button" type="button" value="Cancelar" onclick="">
+        <input class="button" type="submit" style="margin-left: 20px;" value="Solicitar" onclick="">
+      </div>
+    </div>
+
+  </form>
+
+  <div _ngcontent-c2="" id="page-footer">
+    <div _ngcontent-c2="" class="container-fluid">
+      <div _ngcontent-c2="" class="container">
+        <div _ngcontent-c2="" class="col-xs-12">
+          <a _ngcontent-c2="" href="https://www.sistemasgenomicos.com/web_sg/index.php"><img _ngcontent-c2=""
+              class="logo" src="../assets/images/ssgg-blue.png"></a>
+          <label _ngcontent-c2="">Copyright © 2019 Sistemas Genómicos, S.L. All rights reserved.</label>
+          <label _ngcontent-c2="" class="pointer licenses" id="licenses">Licenses</label>
+          <a _ngcontent-c2="" href="https://www.sistemasgenomicos.com/es/politica-de-privacidad/" target="_blank"><label
+              _ngcontent-c2="" class="pointer">Legals</label></a>
+
+          <!--bindings={
+  "ng-reflect-ng-if": "true"
+}-->
+          <!---->
+          <label _ngcontent-c2="" class="pointer" id="version" data-hasqtip="0">Ver. 1.1.0</label>
+
+
+        </div>
+        <div _ngcontent-c2="" id="tooltip">
+          <div _ngcontent-c2=""><label _ngcontent-c2="">user-service v.1.1.16-SNAPSHOT</label></div>
+          <div _ngcontent-c2=""><label _ngcontent-c2="">project-service v.1.1.6-SNAPSHOT </label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</body>
+
+</html>

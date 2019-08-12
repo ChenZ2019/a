@@ -1,0 +1,273 @@
+<form name="dialogForm" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+  <h1 mat-dialog-title>Detalles de la muestra número {{ref}}:</h1>
+  <hr>
+  <br>
+  <div class="font90">
+    <div style="display:flex">
+      <div>
+        <p style="height: 60px">Referencia de la muestra*
+          <br>
+          <input class="inputdata height26" type="text" name="sampleRef" [(ngModel)]="row.sampleRef" #sampleRef="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && sampleRef.invalid }" required />
+          <br>
+          <i *ngIf="!(f.submitted && sampleRef.invalid)">&nbsp;</i>
+          <i *ngIf="f.submitted && sampleRef.invalid" class="invalid-feedback">
+            <i class="red" *ngIf="sampleRef.errors.required">Rellene este campo</i>
+          </i>
+        </p>
+      </div>
+      <div>
+        <p style="margin-left: 32px">Tipo*
+          <br>
+          <select class="inputdata height26" name="sampleType" [(ngModel)]="row.sampleType" #sampleType="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && sampleType.invalid }" required>
+            <option *ngFor="let illness of illnesses" [value]=illness.type>{{illness.type}}</option>
+          </select>
+          <br>
+          <i *ngIf="f.submitted && sampleType.invalid" class="invalid-feedback">
+            <i class="red" *ngIf="sampleType.errors.required">Escoja una opción</i>
+          </i>
+        </p>
+      </div>
+      <div>
+        <p style="margin-left: 35px;">Localización*
+          <br>
+          <input class="inputdata height26" name="sampleLoc" matInput [(ngModel)]="row.sampleLoc" #sampleLoc="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && sampleLoc.invalid }" required>
+          <br>
+          <i *ngIf="f.submitted && sampleLoc.invalid" class="invalid-feedback">
+            <i class="red" *ngIf="sampleLoc.errors.required">Rellene este campo</i>
+          </i>
+        </p>
+      </div>
+      <div>
+        <p style="margin-left: 40px;">Estadio/grado
+          <br>
+          <input class="inputdata height26" name="sampleEstadio" style="width: 120px;" matInput [(ngModel)]="row.sampleEstadio">
+        </p>
+      </div>
+    </div>
+
+    <p>Notas
+      <br>
+      <input class="inputdata" name="sampleNotas" style="width: 800px; height:26px" matInput [(ngModel)]="row.sampleNotas"></p>
+    <div style="display:flex">
+      <div>
+        <mat-form-field>
+          <input class="selectData" id="sampleHispa" name="sampleHispa" type="text" placeholder="Diagóstico Hispatológico" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="autoDiagnostic"
+          [(ngModel)]="sampleHispa">
+          <mat-autocomplete #autoDiagnostic="matAutocomplete" (optionSelected)="updateSubtype1()">
+            <mat-option *ngFor="let option of filteredOptions | async" value="{{option.name}}">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      <div *ngIf="showSubtype1()">
+        <mat-form-field style="margin-left: 20px">
+          <input class="selectData" id="sampleSubtype1" name="sampleSubtype1" type="text" placeholder="Subtipo 1" aria-label="Number" matInput [formControl]="myControl1" [matAutocomplete]="autoSubtype1"
+          [(ngModel)]="sampleSubtype1">
+          <mat-autocomplete #autoSubtype1="matAutocomplete" (optionSelected)="updateSubtype2()">
+            <mat-option *ngFor="let option of filteredSubtype1Options | async" value="{{option.name}}">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      <div *ngIf="showSubtype1() && showSubtype2()">
+        <mat-form-field style="margin-left: 20px">
+          <input class="selectData" id="sampleSubtype2" name="sampleSubtype2" type="text" placeholder="Subtipo 2" aria-label="Number" matInput [formControl]="myControl2" [matAutocomplete]="autoSubtype2"
+          [(ngModel)]="sampleSubtype2">
+          <mat-autocomplete #autoSubtype2="matAutocomplete" (optionSelected)="updateSubtype3()">
+            <mat-option *ngFor="let option of filteredSubtype2Options | async" value="{{option.name}}">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+      <div *ngIf="showSubtype1() && showSubtype2() && showSubtype3()">
+        <mat-form-field style="margin-left: 20px">
+          <input class="selectData" id="sampleSubtype3" name="sampleSubtype3" type="text" placeholder="Subtipo 3" aria-label="Number" matInput [formControl]="myControl3" [matAutocomplete]="autoSubtype3"
+          [(ngModel)]="sampleSubtype3">
+          <mat-autocomplete #autoSubtype3="matAutocomplete">
+            <mat-option *ngFor="let option of filteredSubtype3Options | async" value="{{option.name}}">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <br>
+
+    <p>Fenotipo COSMIC:
+      <input class="inputdata, cosmic" name="cosmic" type="text" [(ngModel)]="row.cosmic">
+    </p>
+
+    <div style="display: flex">
+
+      <div *ngIf="showStuff()">
+        <p class="typeOfData" style="margin-left: 0px">ER:
+          <br>
+          <select class="inputdata height26" name="ER" [(ngModel)]="row.er">
+            <option>Positivo</option>
+            <option>Negativo</option>
+            <option>Desconocido</option>
+          </select>
+        </p>
+      </div>
+
+      <div *ngIf="showStuff()">
+        <p class="typeOfData">PR:
+          <br>
+          <select class="inputdata height26" name="PR"[(ngModel)]="row.pr">
+            <option>Positivo</option>
+            <option>Negativo</option>
+            <option>Desconocido</option>
+          </select>
+        </p>
+      </div>
+
+      <div *ngIf="showStuff2()">
+        <p class="typeOfData" style="margin-left: 0px" >HER2:
+          <br>
+          <select class="inputdata height26" name="HER2" [(ngModel)]="row.her2">
+            <option>Positivo</option>
+            <option>Negativo</option>
+            <option>Desconocido</option>
+          </select>
+        </p>
+      </div>
+
+      <div *ngIf="showStuff()"> 
+        <p class="typeOfData">Ki67+:
+          <br>
+          <input class="inputdata height26" disabled name="ki67" type="number" min="0" max="100" step="1" [(ngModel)]="row.ki67"
+            style=" width:50px;"> %
+        </p>
+      </div>
+
+    </div>
+
+    <br>
+
+    <p>Otros marcadores:</p>
+
+    <div>
+
+        <input  class="marginright10" name="sampleIHQ" type="checkbox" unchecked [(ngModel)]="row.sampleIHQ" />
+        IHQ
+        <select class="inputdata width370" name="sampleIHQText" [(ngModel)]="row.sampleIHQText" style="margin-left: 50px; height:21px">
+          <option>x</option>
+          <option>xx</option>
+          <option>xxx</option>
+        </select>
+      
+    </div>
+    <div>
+    <input class="marginright10" name="sampleIMS" type="checkbox" unchecked [(ngModel)]="row.sampleIMS" />
+    IMS
+    <input class="inputdata width370" name="sampleIMSText" type="text" [(ngModel)]="row.sampleIMSText" style="margin-left: 50px;">
+  </div>
+  <div>
+      <input class="marginright10" name="sampleCariotipo" type="checkbox" unchecked [(ngModel)]="row.sampleCariotipo" />
+      Cariotipo
+      <input class="inputdata width370" name="sampleCariotipoText" placeholder="nomenclatura ISCN: 46, XX" type="text"
+        [(ngModel)]="row.sampleCariotipoText" style="margin-left: 22px;">
+      </div>
+    <div>
+    <input class="marginright10" name="sampleFISH" type="checkbox" unchecked [(ngModel)]="row.sampleFISH" />
+    FISH
+    <input class="inputdata width370" name="sampleFISHText" type="text" placeholder="nuc ish (TP53 x 1, D17Z1 x 2) [160/200]"
+      [(ngModel)]="row.sampleFISHText" style="margin-left: 44px;">
+    </div>
+    <div>
+    <input class="marginright10" name="sampleOtros" type="checkbox" unchecked [(ngModel)]="row.sampleOtros" />
+    Otros
+    <input class="inputdata width370" name="sampleOtrosText" type="text" [(ngModel)]="row.sampleOtrosText" style="margin-left: 42px;">
+  </div>
+    <br>
+    <div style="display:flex">
+      <div style="width:35%; height:50px">
+        Fecha de extracción*
+        <input class="inputdata" name="sampleDate" type="date" [(ngModel)]="row.sampleDate" #sampleDate="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && sampleDate.invalid }" required>
+        <i *ngIf="!(f.submitted && sampleDate.invalid)">&nbsp;</i>
+        <i *ngIf="f.submitted && sampleDate.invalid" class="invalid-feedback">
+          <i class="red" style="margin-left:122px;" *ngIf="sampleDate.errors.required">Escoja una
+            fecha</i>
+        </i>
+      </div>
+      <div style="width:65%">Tiempo desde la resección hasta el inicio de la conservación*
+        <input class="inputdata" name="sampleTime" type="text" style="width: 220px" [(ngModel)]="row.sampleTime" #sampleTime="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && sampleTime.invalid }" required>
+        <br>
+        <i *ngIf="f.submitted && sampleTime.invalid" class="invalid-feedback">
+          <i class="red" style="margin-left:348px;" *ngIf="sampleTime.errors.required">Rellene el
+            campo</i>
+        </i>
+      </div>
+    </div>
+    <br>
+    <div style="display:flex">
+      <div style="height:45px; width:52%">
+        Tipo de muestra*
+        <select class="inputdata" name="sampleTypeOf" [(ngModel)]="row.sampleTypeOf" style="width: 270px;margin-left: 10px"
+          #sampleTypeOf="ngModel" [ngClass]="{ 'is-invalid': f.submitted && sampleTypeOf.invalid }" required>
+          <option *ngFor="let typeofsample of typesofsample" [value]=typeofsample.type>{{typeofsample.type}}</option>
+        </select>
+        <br>
+        <i *ngIf="f.submitted && sampleTypeOf.invalid" class="invalid-feedback">
+          <i class="red" style="margin-left:106px;" *ngIf="sampleTypeOf.errors.required">Escoja
+            una opción</i>
+        </i>
+      </div>
+      <div style="height:45px; width:48%">
+        Porcentaje de células tumorales de la muestra *
+        <input class="inputdata" name="samplePercentage" type="text" style="width: 60px; margin-left: 10px"
+          [(ngModel)]="row.samplePercentage" #samplePercentage="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && samplePercentage.invalid }" required>
+        <br>
+        <i *ngIf="f.submitted && samplePercentage.invalid" class="invalid-feedback">
+          <i class="red" style="margin-left:281px;"
+            *ngIf="samplePercentage.errors.required">Rellene este campo</i>
+        </i>
+      </div>
+    </div>
+    <br>
+    <i>Requisitos para el envío de muestras:<br>
+      1) La muestra debe contener, al menos, el 25% de células tumorales.<br>
+      2) Enviar, además de la muestra de tejido tumoral, un portaobjetos conteniendo la muestra teñida en
+      hematoxilinaeosina y marcada el área tumoral.</i>
+    <br>
+    <br>
+    <div style="display:flex">
+      <div>
+        <input style="margin-right: 10px;" name="checkref" type="checkbox" unchecked [(ngModel)]="checkref" [(ngModel)]="row.samplePar" />
+        Se acompaña de una muestra de ARN tumoral pareada.
+      </div>
+      <div>
+          <p style="margin-left: 40px" [ngStyle]="{'color': !checkref ? 'rgb(127, 128, 129)': '#000'}">Referencia de
+      muestra*
+
+    <input class="inputdata2 margintop3" name="notcheckref" [disabled]="!checkref" type="text"
+      style="margin-left: 10px; width: 220px" [(ngModel)]="row.notcheckref" #notcheckref="ngModel"
+      [ngClass]="{ 'is-invalid': f.submitted && notcheckref.invalid }" required>
+    <br>
+    <i *ngIf="f.submitted && notcheckref.invalid" class="invalid-feedback">
+      <i class="red" style="margin-left:10px;" *ngIf="notcheckref.errors.required">Escoja una
+        opcion</i>
+    </i>
+  </p>
+  </div>
+  </div>
+  </div>
+
+  <div style="margin-top: 55px;" align="end">
+    <button class="button" [mat-dialog-close]>Cancelar</button>
+    <button class="button" style="margin-left: 20px;">Aceptar</button>
+  </div>
+</form>
+
+<!----(click)="onNoClick()"--->
